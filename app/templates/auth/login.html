@@ -1,0 +1,32 @@
+{% extends "./base.html" %}
+
+{% block title %}Inicio de sesión{% endblock %}
+
+{% block customcss %} 
+<link rel="stylesheet" href="{{url_for('static', filename='css/login.css')}}">
+{% endblock %}
+
+{% block body %} 
+<form class="form-signin" action="/login" method="post">
+    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}" >
+    <img class="mb-4" src="{{url_for('static', filename='img/flask.svg')}}" alt="" width="72" height="57">
+    <h1 class="h3 mb-3 fw-normal">Inicio de sesi&oacute;n</h1>
+
+    <div class="form-floating">
+        <label for="usuario">Usuario</label>
+      <input type="text" class="form-control" name="usuario" id="usuario" placeholder="Usuario" minlength="5" maxlength="20" autofocus>
+    </div>
+    <br>
+    <div class="form-floating">
+        <label for="password">Contrase&ntilde;a</label>
+      <input type="password" class="form-control" name="password" id="password" minlength="6" placeholder="Contrase&ntilde;a">
+    </div>
+
+    <button class="w-100 btn btn-lg btn-primary" type="submit">Iniciar sesi&oacute;n</button>
+    <p class="mt-5 mb-3 text-muted">2025</p>
+  </form>
+{% endblock %}
+
+{% block customjs %}
+<script src="{{ url_for('static', filename='js/login.js')}}"></script>
+{% endblock %}
