@@ -44,11 +44,15 @@ def paginaNoEncontrada(error):
 def listarLibros():
     try:
         cursor = db.cursor()
-        sql="select isbn, titulo, anoedicion from libro order by titulo asc"
+        sql="""select lib.isbn, lib.titulo, lib.anoedicion , lib.precio, a.nombres, a.apellidos
+        from libro as lib  join autor as a on lib.autor = a.id
+        order by titulo asc"""
         cursor.execute(sql)
         data = cursor.fetchall()
-        print(data)
-        return "Ok"
+        data = {
+            "libros":data
+        }
+        return render_template('listadoLibros.html', data=data)
     except Exception as ex:
         raise Exception(ex)
 
