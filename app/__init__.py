@@ -6,17 +6,17 @@ app = Flask(__name__)
 csrf = CSRFProtect()
 
 # Configuración de la base de datos
-app.config['MYSQL_HOST'] = 'localhost'
-app.config['MYSQL_DATABASE'] = 'tiendaflask'
-app.config['MYSQL_USER'] = 'root'
-app.config['MYSQL_PASSWORD'] = 'abc123.'
+# app.config['MYSQL_HOST'] = 'localhost'
+# app.config['MYSQL_DATABASE'] = 'tiendaflask'
+# app.config['MYSQL_USER'] = 'root'
+# app.config['MYSQL_PASSWORD'] = 'abc123.'
 
-db = mysql.connector.connect(
-    host=app.config['MYSQL_HOST'],
-    database=app.config['MYSQL_DATABASE'],
-    user=app.config['MYSQL_USER'],
-    password=app.config['MYSQL_PASSWORD']
-)
+# db = mysql.connector.connect(
+#     host=app.config['MYSQL_HOST'],
+#     database=app.config['MYSQL_DATABASE'],
+#     user=app.config['MYSQL_USER'],
+#     password=app.config['MYSQL_PASSWORD']
+# )
 
 @app.route("/")
 def index():
